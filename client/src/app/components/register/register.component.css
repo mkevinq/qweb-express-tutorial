@@ -1,0 +1,92 @@
+.breathe{
+    margin-left:40px;
+    margin-right: 40px;
+    
+    
+}
+.breathe-v{
+    padding-top:20px;
+    padding-bottom:20px;
+
+}
+
+.logo{
+    
+    padding-bottom:80px;
+}
+.full-img{
+    background-image: url("../../../assets/img/login-dark.jpg");
+    height:100vh;
+}
+
+.right{
+    width:50% !important;
+    flex-direction:column;
+    display:flex;
+    flex:1;
+    align-items:center;
+    justify-content:center;
+}
+
+.form-contain{
+    max-width:450px;
+}
+
+.title{
+    font-size: 36px;
+    font-weight: 600;
+}
+.paragraph{
+    line-height:160%;
+    font-size: 16px;
+    color:#717F8D;
+}
+
+.primary-button{
+    background-color: #2637de;
+    color:#fff;
+    font-size:14px;
+    width:100%;
+    padding: 18px 24px;
+    border-radius:4px;
+    border: none;
+    cursor:pointer;
+}
+
+.primary{
+    color:#2637de;
+}
+
+.primary-button:hover{
+    background-color: #3647df;
+    transition: background-color 200ms;
+}
+
+.text-link{
+    color:#212121;
+    text-decoration: none;
+}
+.space-top{
+    padding-top:20px;
+}
+.container-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .align-item-middle {
+    
+    max-width:900px;
+  }
+  
+  .align-item-top {
+    align-self: flex-start;
+  }
+  
+  .align-item-bottom {
+    align-self: flex-end;
+  }
+

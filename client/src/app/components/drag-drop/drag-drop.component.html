@@ -1,0 +1,73 @@
+<div class="w-100 fileUploadWrapper">
+    <form [formGroup]="form" (ngSubmit)="upload()">
+
+        <!-- Form -->
+
+        <div class="w-100">
+
+            <div style="margin-top:5px;">
+                <mat-form-field appearance="outline" style="width:100%">
+                    <mat-label>Description</mat-label>
+                    <input  name="desc" formControlName="desc" matInput>
+                </mat-form-field>
+                <app-tags required></app-tags>
+            </div>
+            <div appDragDropFileUpload (fileDropped)="setFiles($event)" class="image-list"
+                *ngFor="let file of fileArr; let i = index">
+                <div style="display:flex;flex:1;">
+                    <img class="profile" [src]="sanitize(file['url'])" alt="">
+                </div>
+                <div style="display:flex;flex:3;flex-direction: row;">
+                    <h3 style="flex:3">{{file.item.name}}</h3>
+                    <button type="button" style="flex:1" (click)="fileField.click()" class="naked-button">Change File</button>
+
+                </div>
+            </div>
+
+            <div *ngIf="fileArr.length !=0 && !progress" style="display:flex;padding-top:10px;">
+
+                <a (click)="clearFiles()" class="cancel-button">Cancel</a>
+                <button type="submit" class="primary-button">Upload Photo</button>
+
+            </div>
+
+            <p class="message">{{msg}}</p>
+        </div>
+
+        <!-- Progress Bar -->
+
+        <div *ngIf="progress">
+            <div class="progress-contain form-group">
+                <div class="progress progress-bar " role="progressbar"
+                    [style.width.%]="progress">
+                </div>
+            </div>
+        </div>
+
+        <!-- Drag & Drop Box -->
+
+
+        <div *ngIf="fileArr.length ===0 && !progress" class="box" appDragDropFileUpload (fileDropped)="setFiles($event)">
+
+            <div class="box-content" (click)="fileField.click()">
+                <div>
+                    <img class="icon-med" src="../../../assets/img/upload.svg">
+
+                    <h3 style="margin-top: 10px;" class="subtitle">Please drag and drop a moment here.</h3>
+                    <p class="paragraph">Photo format should be .jpg | .png | .jpeg </p>
+                    
+
+                </div>
+            </div>
+
+            <div *ngIf="fileArr.length ===0">
+                <button type="button" (click)="fileField.click()" style="margin-top:20px; min-width:100%;"
+                    class="primary-button">Choose From Files</button>
+            </div>
+        </div>
+
+        <input type="file" accept="image/png, image/jpeg, image/png" name="avatars" #fileField
+                        (change)="setFiles($event.target.files)" hidden>
+
+    </form>
+</div>

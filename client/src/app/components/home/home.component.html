@@ -1,0 +1,151 @@
+<nav class="navbar ">
+
+  <a href="/" class="logo-container">
+    <img class="logo" src="../../../assets/img/10k-logomark.svg" alt="photo share">
+  </a>
+
+  <ul class="nav-links">
+    <li>
+      <a (click)="logout()" class="naked-button">Logout</a>
+    </li>
+    <li>
+      <a href="/about" class="naked-button">About</a>
+    </li>
+  </ul>
+
+</nav>
+
+<section>
+  <div class="testClass">
+    <div class=" contain-1100">
+
+      <!-- Left Side (Upload Form) -->
+
+      <div class="breathe left">
+        <div style="margin-top:30px;margin-bottom: 20px;flex-wrap: wrap;">
+          <h1 class="title">What drives you <span
+              style="font-weight:600;">{{userdata.name === null ? 'Daily' : userdata.name.split(" ")[0]}}</span>?</h1>
+
+          <p class="paragraph">Track your proudest moments <span style="font-weight:500; color:#000"> daily</span> to
+            find out. The most passionate people reflect on their ability to:</p>
+          <div class="skill-tag-container">
+            <a (click)="setFilter('Focus')" class="skill-tag">Focus</a>
+            <a (click)="setFilter('Adapt')"  class="skill-tag">Adapt</a>
+            <a (click)="setFilter('Support')"  class="skill-tag">Support</a>           
+            <a (click)="setFilter('Communication')"  class="skill-tag">Communicate</a>
+            <a (click)="setFilter('Mindfullness')"  class="skill-tag">Be Mindful</a>
+            <a (click)="setFilter('Learning')"  class="skill-tag">Learn</a>
+            <a (click)="setFilter('Leadership')"  class="skill-tag">Lead</a>
+          </div>
+
+        </div>
+        <app-drag-drop style="width:100% !important;"></app-drag-drop>
+      </div>
+
+      <!-- Right Side (Gallery View) -->
+
+      <div style="flex:1;padding-right:10px;">
+        <div style="display:flex; flex-direction: column;padding-top:20px; justify-content: space-between;">
+          <div class="moment-sort" style="width:100%;display:flex; justify-content: space-between;">
+            <div style="flex:3">
+              <h3 class="subtitle" style="font-size: 18px; font-weight: 500;padding-top: 20px;">
+                Past Moments
+              </h3>
+            </div>
+
+          <!-- Filter and Export -->
+
+            <div class="mobile-space" style="display:flex;flex:6;flex-direction: row;">
+              <mat-form-field appearance="outline">
+                <mat-label>Sort by skill...</mat-label>
+                <mat-select [(value)]="currentImageFilter">
+                  <mat-option>All</mat-option>
+                  <mat-option value="Focus">Focus</mat-option>
+                  <mat-option value="Leadership">Leadership</mat-option>
+                  <mat-option value="Adapt">Adapt</mat-option>
+                  <mat-option value="Support">Support</mat-option>
+                  <mat-option value="Mindfullness">Mindfullness</mat-option>
+                  <mat-option value="Discipline">Discipline</mat-option>
+                  <mat-option value="Communication">Communication</mat-option>
+                  <mat-option value="Technical">Technical</mat-option>
+                  <mat-option value="Learning">Learning</mat-option>
+
+                </mat-select>
+              </mat-form-field>
+              <button type="button" class="outline-button" style="height:52px;margin:4px;min-width: 100px;">
+                Export&#160;&#160;&#160;▶&#160;.mp4</button>
+
+            </div>
+
+          </div>
+
+          <!-- Number of Moments Progress Bar -->
+
+
+          <div class="progress-contain w-100" style="height:6px;">
+            <div class="progress progress-bar" [style.width.%]="getProgressWidth()">
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction: column;justify-content: space-between; ">
+
+            <div style="display:flex; flex-direction: row;padding-top:10px;justify-content: space-between; width:100%;">
+
+
+              <h3 style="display:flex;font-size: 14px; font-weight: 400;color:#111;padding-right: 20px; flex:1;">
+                All | <strong> &#160;{{imageData.images.length}}</strong>
+              </h3>
+              <h3 *ngIf="currentImageFilter != null"
+                style="flex:1;display:flex;font-size: 14px; font-weight: 400;color:#111;padding-right: 20px;">
+                {{currentImageFilter}} |&#160; <strong>{{filterImageData().length}}</strong>
+              </h3>
+              <h3
+                style="font-size: 14px; font-weight: 400;color:#111; text-align: center; align-self: flex-end;float:right;">
+                | <strong>{{getTotalString()}}</strong>
+              </h3>
+
+              <div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Image List -->
+
+        <div style="max-height:70vh;min-height:70vh;overflow-y:auto;">
+
+          <div style="display:flex;flex-direction: row; flex-wrap: wrap;">
+
+            <!-- Empty List -->
+
+            <div *ngIf="filterImageData().length == 0">
+              <img class="sq-200" src="../../../assets/img/empty_images.png">
+            </div>
+
+            <!-- Full List -->
+
+            <div *ngFor="let img of filterImageData()">
+              <div class="imageContainer" style="position:relative;padding-right:5px;">
+
+                <img class="sq-200" [src]="img.url">
+                <div class="text" style="position: absolute;
+                top: 5%;
+                left: 5%;
+                ">
+                  <button (click)="deletePost(img._id)" class="delete-button">✕</button>
+                  <p>{{img.desc === 'null' ? '' : img.desc}}</p>
+                  <p>{{img.skills === 'null' ? '' : img.skills[0]}}</p>
+                  <p>{{img.createdAt.substring(0,10)}}</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

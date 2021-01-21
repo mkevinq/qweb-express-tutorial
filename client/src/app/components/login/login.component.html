@@ -1,0 +1,51 @@
+<section>
+    <div style="display:flex;flex:1;">
+
+        <div class="full-img" style="display:flex;flex:1;">
+
+        </div>
+        <div class="breathe right">
+
+            <div class="form-contain">
+
+                <mat-card-header color="primary">
+                    <mat-card-title>
+                        <h1 class="title">Welcome back!</h1>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p class="paragraph">Please login below to continue tracking your Ten Thousand Small Steps.</p>
+                </mat-card-content>
+
+                <form [formGroup]="loginForm" (submit)="loginUser()">
+                    <mat-form-field appearance="outline" style="width:100%">
+                        <mat-label>Email</mat-label>
+                        <input required name="email" formControlName="email" matInput>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="outline" style="width:100%">
+                        <mat-label>Password</mat-label>
+                        <input required name="password" type="password" formControlName="password" matInput>
+                    </mat-form-field>
+
+                    
+                    <div >
+                        <a class="text-link" href="/login"><span class="primary">Forgot Password?</span></a>
+                        
+    
+                    </div>
+                    <br>
+                    <button type="submit" class="primary-button w-100">Login to 10kPhotos</button>
+
+                    <div class="space-top">
+                        <a class="text-link" href="/register">Don't have an account? 
+                            <span class="primary">Create an Account</span></a>
+                        <br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</section>

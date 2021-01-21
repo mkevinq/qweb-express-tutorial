@@ -1,0 +1,57 @@
+<nav class="navbar ">
+  <a href="/" class="logo-container">
+    <img class="logo" src="../../../assets/img/10k-logomark.svg" alt="photo share">
+  </a>
+  <ul class="nav-links">
+    <li>
+      <a href="/" class="naked-button">Back</a>
+    </li>
+  </ul>
+</nav>
+
+<section >
+  <div class="testClass" >
+    <div class=" contain-1100" >
+        <div class="breathe left">
+          <div style="margin-top:60px;margin-bottom: 20px;flex-wrap: wrap;">
+
+            <h1 class="title" style="font-weight:500;">
+              <a href="https://www.smartbrief.com/original/2019/12/connecting-purpose-and-passion-career-success" 
+              style="font-weight:500;text-decoration: underline;color:#2637de;">Purpose & Passion</a> 
+              provide the fuel we need to pursue our goals.</h1>
+  
+            <p class="paragraph" style="max-width:900px; padding-bottom:20px; border-bottom: rgb(182, 182, 182) solid 0.7px;">
+              Purpose, the substrate from which your passions are created, 
+              is an important factor in your success at work. This is true even if you don’t feel 
+              that you can accurately describe your purpose at this moment. To better understand it, 
+              look to the things that have captured your imagination or curiosity. Think back to the 
+              qualities of assignments that you’ve found most fulfilling.</p>
+            
+            <p class="paragraph" style="font-weight:500;color:#000; margin-top:28px;">
+              The most passionate people reflect on their ability to:</p>
+
+            <div class="skill-tag-container" style="padding-top:20px;padding-bottom:20px;">
+              <a (click)="setSelectedTerm('Focus')" class="skill-tag">Focus</a>
+              <a (click)="setSelectedTerm('Adapt')" class="skill-tag">Adapt</a>
+              <a (click)="setSelectedTerm('Support')" class="skill-tag">Support</a>
+              <a (click)="setSelectedTerm('Appreciate')" class="skill-tag">Appreciate</a>
+              <a (click)="setSelectedTerm('Communicate')" class="skill-tag">Communicate</a>
+              <a (click)="setSelectedTerm('Learn')" class="skill-tag">Learn</a>
+              <a (click)="setSelectedTerm('Lead')" class="skill-tag">Lead</a>
+            </div>
+
+            <h1 class="title" style="margin-top:20px;">{{selectedTerm}}</h1>
+  
+            <p class="paragraph" style="max-width:600px; padding-right:20px;">{{selectedTermDesc}}</p>
+            <a style="text-decoration: none; color:#2637de" [href]="selectedLink">Read More</a>
+          </div>
+      </div>
+      
+      <div style="display: flex; flex:1;align-items:flex-start;justify-content: flex-start;justify-items: flex-start;">
+        <img style="width:100%;height:auto;" src="../../../assets/img/about-2.png">
+      </div>
+      
+    </div>
+  </div>
+ 
+</section>

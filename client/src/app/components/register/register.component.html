@@ -1,0 +1,59 @@
+<section>
+    <div style="display:flex;flex:1;">
+
+        <div class="full-img" style="display:flex;flex:1;">
+
+        </div>
+        <div class="breathe right">
+
+            <div class="form-contain">
+               
+                        <h1 class="title" style="line-height: 120%;">Welcome to Ten Thousand Small Steps!</h1>
+                    
+                    <p class="paragraph">We're glad you're here. Please create an account by entering your details
+                        below.</p>
+                
+
+                <form [formGroup]="signupForm" (ngSubmit)="createUser()">
+
+                    <mat-form-field appearance="outline" style="width:100%">
+                        <mat-label>Full Name</mat-label>
+                        <input required name="fname" formControlName="name" matInput>
+                    </mat-form-field>
+
+                    <br>
+
+                    <mat-form-field appearance="outline" style="width:100%">
+                        <mat-label>Email</mat-label>
+                        <input required type="email" name="email" formControlName="email" matInput>
+                    </mat-form-field>
+
+                    <br>
+
+                    <mat-form-field appearance="outline" style="width:100%">
+                        <mat-label>Phone</mat-label>
+                        <input required name="phone_number" formControlName="phone_number" matInput>
+                    </mat-form-field>
+
+                    <br>
+
+                    <mat-form-field appearance="outline" style="width:100%">
+                        <mat-label>Password</mat-label>
+                        <input required name="password" type="password" formControlName="password" matInput>
+                    </mat-form-field>
+
+                    <br>
+                    <button type="submit" class="primary-button w-100">Create Account</button>
+                    <div class="space-top">
+                        <a class="text-link" href="/login">Already have an account? <span class="primary">Sign
+                                In</span></a>
+                        <br>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</section>
