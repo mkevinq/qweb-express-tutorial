@@ -6,32 +6,7 @@ const jwt = require("jsonwebtoken");
 const Schema = mongoose.Schema;
 
 // A Schema defines the structure of the data we want to store in the database
-const userSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    phone_number: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    images: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Image"
-    }]
-}, {
-    collection: 'users',
-    timestamps: true,
-});
+const userSchema = new Schema();
 
 // Used to encrypt our passwords
 userSchema.methods.hashPassword = async (password) => {

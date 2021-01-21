@@ -29,12 +29,6 @@ app.use(bodyParser.json())
 // Morgan is a middleware that logs some debugging information whenever requests are sent to the backend
 app.use(morgan("dev"));
 
-// Our first route
-app.get("/",(reg,res)=>{
-    console.log("First Route");
-    res.status(200).json({ message: "Hello world!" })
-})
-
 // User routes
 app.use("/user", userRoutes);
 
